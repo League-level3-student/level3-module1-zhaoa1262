@@ -40,7 +40,7 @@ public class DynamicIntegerArray {
 	public void set(int v, int location) {
 		// A. set the variable at the location passed in to the method
 		// to the new value v
-		v = bobs[location];
+		bobs[location] = v;
 	}
 
 	// 7. Complete the steps in the insert method
@@ -81,10 +81,10 @@ public class DynamicIntegerArray {
 		// B. make a for loop to iterate through the member array
 		for(int i = 0; i<bobs.length; i++) {
 			if(i<location) {
-				soots[i] = bobs[i];
+				soots[i] = bobs[i] ;
 			}
 			else if(i>location) {
-				soots[i] = bobs[i-1];
+				 soots[i-1] = bobs[i];
 			}
 			else {
 			continue; 
@@ -109,12 +109,13 @@ public class DynamicIntegerArray {
 	// 11. Complete the size method so that it returns the length of the member
 	// array.
 	public int size() {
-		return 0;
+		return bobs.length;
 	}
 
 	// 12. Complete the clear array so that it sets the member array
 	// equal to a new integer array of size 0
 	public void clear() {
+		bobs = new int[0];
 	}
 
 	// 13. Run the test again to see if you are finished.
