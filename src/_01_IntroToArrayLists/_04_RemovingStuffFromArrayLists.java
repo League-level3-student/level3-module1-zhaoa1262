@@ -79,11 +79,12 @@ public class _04_RemovingStuffFromArrayLists {
 		truth.add('#');
 		/* TODO 2: Remove the hash symbols and print out the truth. */
 		for(int x = 0; x<truth.size();x++) {
-			if(truth.get(x).contains("#")) {
+			if(truth.get(x).equals('#')) {
 				truth.remove(x);
+				
 			}
 		}
 		
-		
+		System.out.println(truth);
 	}
 }
