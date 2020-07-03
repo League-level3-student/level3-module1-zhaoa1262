@@ -1,7 +1,23 @@
 package _06_Intro_To_Hash_Maps;
 
+import java.util.HashMap;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class _02_LogSearch {
+	HashMap <Integer, String> values = new HashMap<>();
+	JFrame frame = new JFrame();
+	JPanel panel = new JPanel();
+	JButton entry = new JButton();
+	JButton search = new JButton();
+	JButton view = new JButton();
+	
+	void run() {
+		
+	}
+	
   /* 
 	 * Crate a HashMap of Integers for the keys and Strings for the values.
 	 * Create a GUI with three buttons. 
