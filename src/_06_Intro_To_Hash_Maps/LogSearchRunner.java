@@ -6,5 +6,6 @@ public class LogSearchRunner {
 	public static void main(String[] args) {
 		new _02_LogSearch().run();
 	
+		
 	}
 }

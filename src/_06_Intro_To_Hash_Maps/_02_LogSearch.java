@@ -15,7 +15,11 @@ public class _02_LogSearch {
 	JButton view = new JButton();
 	
 	void run() {
-		
+		frame.setVisible(true);
+		frame.add(entry);
+		frame.add(search);
+		frame.add(view);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 	
   /* 
