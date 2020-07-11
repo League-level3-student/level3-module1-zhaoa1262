@@ -32,6 +32,7 @@ public class _02_LogSearch implements ActionListener {
 		panel.add(remove);
 		frame.add(panel);
 		frame.pack();
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
