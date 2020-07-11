@@ -1,27 +1,88 @@
 package _06_Intro_To_Hash_Maps;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-public class _02_LogSearch {
-	HashMap <Integer, String> values = new HashMap<>();
+public class _02_LogSearch implements ActionListener {
+	HashMap<Integer, String> values = new HashMap<>();
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
-	JButton entry = new JButton();
-	JButton search = new JButton();
-	JButton view = new JButton();
-	
+	JButton entry = new JButton("Add Entry");
+	JButton search = new JButton("Search by ID");
+	JButton view = new JButton("View List");
+	JButton remove = new JButton("Remove Entry");
+
 	void run() {
 		frame.setVisible(true);
-		frame.add(entry);
-		frame.add(search);
-		frame.add(view);
+		entry.addActionListener(this);
+		search.addActionListener(this);
+		view.addActionListener(this);
+		remove.addActionListener(this);
+		panel.add(entry);
+		panel.add(search);
+		panel.add(view);
+		panel.add(remove);
+		frame.add(panel);
+		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
-	
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getSource() == entry) {
+			String enteredIDString = JOptionPane.showInputDialog("Enter an ID NUmber");
+			int enteredID = Integer.parseInt(enteredIDString);
+			String enteredName = JOptionPane.showInputDialog("Enter a name");
+			values.put(enteredID, enteredName);
+		} 
+		else if (e.getSource() == search) {
+			String enteredIDString = JOptionPane.showInputDialog("Enter an ID NUmber");
+			int enteredID = Integer.parseInt(enteredIDString);
+			int count = 0;
+			for (int i = 0; i < values.size(); i++) {
+				if (values.containsKey(enteredID)) {
+					JOptionPane.showMessageDialog(null, values.get(enteredID));
+					count++;
+				}
+			}
+			if (count == 0) {
+				JOptionPane.showMessageDialog(null, "The entry does not exist");
+			}
+
+		} 
+		else if (e.getSource() == view) {
+			Set<Integer> keyss = values.keySet();
+			ArrayList<Integer> keysss = new ArrayList <Integer> ();
+			keysss.addAll(keyss);
+			for (int i = 0; i < values.size(); i++) {
+				System.out.println("ID: " + keysss.get(i) +" Name: " + values.get(keysss.get(i)));
+			}
+		}
+		else if(e.getSource() == remove) {
+			String enteredIDString = JOptionPane.showInputDialog("Enter an ID NUmber");
+			int enteredID = Integer.parseInt(enteredIDString);
+			int count = 0;
+			for(int i = 0; i<values.size(); i++) {
+				if(values.containsKey(enteredID)) {
+					count++;
+					values.remove(enteredID);
+				}
+			}
+			if(count == 0) {
+				JOptionPane.showMessageDialog(null, "ID is not in the list");
+			}
+		}
+	}
+
   /* 
 	 * Crate a HashMap of Integers for the keys and Strings for the values.
 	 * Create a GUI with three buttons. 

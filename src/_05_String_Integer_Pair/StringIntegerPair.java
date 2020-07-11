@@ -18,8 +18,8 @@ public class StringIntegerPair {
 		// the passed in String, set the value at that location to the
 		// passed in value and return from the method.
 		for (int i = 0; i < keys.length; i++) {
-			if (keys[i]==key) {
-				keys[i] = key;
+			if (keys[i].equals(key)) {
+				values[i] = value;
 				return;
 			}
 		}
@@ -34,8 +34,8 @@ public class StringIntegerPair {
 		// F. iterate through the keys and values and copy the elements to the new
 		// arrays
 		for (int j = 0; j < keys.length; j++) {
-			keys[j] = keysPlusOne[j];
-			values[j] = valuesPlusOne[j];
+			keysPlusOne[j] = keys[j];
+			valuesPlusOne[j] = values[j];
 		}
 		keys = keysPlusOne;
 		values = valuesPlusOne;
@@ -47,17 +47,15 @@ public class StringIntegerPair {
 	// 5. Complete the method so it returns the value located at the passed in key.
 	// If the key does not exist, return Integer.MIN_VALUE.
 	public int get(String key) {
-		int count = 0;
+	
 		for(int i = 0; i<keys.length; i++) {
-			if(keys[i]==key) {
-				 count+=1;
-				 return i;
+			if(keys[i].equals(key)) {
+				return values[i];
 			}
 		}
-		 if(count == 0) {
+		
 			 return Integer.MIN_VALUE;
-		 }
-		return 0;
+		  
 	}
 
 	// 6. Complete the containsKey method so that it returns true if the
